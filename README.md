@@ -8,6 +8,9 @@
 * You can loose the game either by exceesing **mistake limits** (you can set the limit), or by exceeding **time limit** (which is fixed at 1 hour).
 * **ENJOY THE GAME**
 
+* Here is the link for the sudoku website: [SUDOKU](https://navthejb.github.io/Sudoku_game/)
+* ( site link : https://navthejb.github.io/Sudoku_game/ )
+
 
 ## Light/Dark Mode Toggle
 
