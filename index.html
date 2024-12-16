@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUDOKU</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <section class="header">
+        <section class="header-left">
+            <div class="heading-box">
+                <h1 class="main-heading">SUDOKU</h1>
+            </div>
+        </section>
+        <section class="header-right">
+            <div id="history-darkmode-box">
+                <button id="history-btn">HISTORY</button>
+                <label id="dark-mode-toggle">
+                    <input id="dark-mode-slider-container" class="dark-mode-slider-container" type="checkbox">
+                    <span id="dark-mode-slider"  title="Lumos!"></span>
+                </label>
+            </div>
+            <div class="modal" id="history-modal">
+                <div class="hist-modal-content hist-modal-content__vanish" id="history-modal-content">
+                    <h5>Game History</h5>
+                    <div id="game-results-empty">
+                        <i class="fa-regular fa-face-sad-tear"></i>
+                        <h6>No Data Found...</h6>
+                    </div>
+                    <div class="game-results" id="game-results-id">
+                        <ul>
+                            <li>
+                                <details>
+                                    <summary class="history-summary"></summary>
+                                    <p class="history-details"></p>
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary class="history-summary"></summary>
+                                    <p class="history-details"></p>
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary class="history-summary"></summary>
+                                    <p class="history-details"></p>
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary class="history-summary"></summary>
+                                    <p class="history-details"></p>
+                                </details>
+                            </li>
+                            <li>
+                                <details>
+                                    <summary class="history-summary"></summary>
+                                    <p class="history-details"></p>
+                                </details>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <section class="timer">
+        <section class="timer-left">
+            <div class="timer-left__decoy">
+                
+            </div>
+        </section>
+        <section class="timer-right">
+            <div class="timer-box" id="timer-values">
+                <h2 id="timer-minute">00</h2>
+                <h2>&colon;</h2>
+                <h2 id="timer-second">00</h2>
+            </div>
+        </section>
+    </section>
+    
+    <section class="hero">
+        
+        <section class="hero__left">
+            <section class="sudoku-container">
+                <div class="mistake-display">
+                    <p id="mistake-text">mistakes : <span id="mistakes-made">0</span> / <span id="max-mistakes">3</span></p>
+                </div>
+                <div class="canvas" id="canva">
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input type="number" class="micro-canvas__input" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+        
+                    <div class="mini-canvas">
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        <div class="micro-canvas">
+                            <input class="micro-canvas__input" type="number" onkeypress='return event.charCode >= 49 && event.charCode <= 57'>
+                        </div>
+                        
+                    </div>
+            
+                </div>
+            </section>
+    
+        </section>
+
+        <section class="hero__right">
+            <section class="hero__right-sub">
+                <div>
+                    <div class="highscore-box">
+                        <p id="highscore-p">HIGH SCORE</p>
+                        <h4 id="highscore-display">
+                            0
+                        </h4>
+                    </div>
+            
+                    <section class="utilities-div">
+                        <button class="utilities-btn" id="undo-btn" title="undo"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            
+                        <button class="utilities-btn" id="erase-btn" title="erase" disabled><i class="fa-solid fa-eraser"></i></button>
+                
+                        <button class="utilities-btn" id="hint-btn" title="hint" limitOfHints="3"><i class="fa-regular fa-lightbulb"></i></button>
+                        
+                        <button class="utilities-btn" id="settings-btn" title="settings"><i class="fa-solid fa-gear"></i></button>
+    
+                        <div class="modal" id="settings-modal">
+                            <div class="settings__content">
+                                
+                                <div class="hint-settings-box">
+                                    <label for="hint-input">Hints Count</label>
+                                    <div>
+                                        <button id="hint-down">&minus;</button>
+                                        <input type="number" id="hint-input" onkeypress='return event.charCode >= 49 && event.charCode <= 57' disabled value="3">
+                                        <button id="hint-up">&plus;</button>
+                                    </div>
+                                </div>
+                                <div class="mistake-settings-box">
+                                    <label for="mistake-input">Mistakes Count</label>
+                                    <div>
+                                        <button id="mistake-down">&minus;</button>
+                                        <input type="number" id="mistake-input" onkeypress='return event.charCode >= 49 && event.charCode <= 57' disabled value="3">
+                                        <button id="mistake-up">&plus;</button>
+                                    </div>
+                                </div>
+                                <button id="settings-submit-btn" >confirm</button>
+                            </div>
+                            
+                        </div>
+                        
+                    </section>
+                    
+                    
+                    <button class="newgame" id="new-game">NEW GAME</button>
+                </div>
+                <section id="num-pad">
+                    <button class="num-pad__btn">1</button>
+                    <button class="num-pad__btn">2</button>
+                    <button class="num-pad__btn">3</button>
+                    <button class="num-pad__btn">4</button>
+                    <button class="num-pad__btn">5</button>
+                    <button class="num-pad__btn">6</button>
+                    <button class="num-pad__btn">7</button>
+                    <button class="num-pad__btn">8</button>
+                    <button class="num-pad__btn">9</button>
+                </section>
+            </section>
+            
+        </section>
+
+        
+    </section>
+
+
+    
+</body>
+</html>
