@@ -301,7 +301,17 @@ if(Number(localStorage.getItem("gameWonLossToggleLocal"))==0){
         sudokuUserInputValueArray = JSON.parse(localStorage.getItem("sudokuUserInputValueLocal"))
     }
 }else{
-    randomSudokuSelector();
+    if(localStorage.getItem("darkModeToggleLocal")){
+        if(Number(localStorage.getItem("darkModeToggleLocal"))==1){
+            darkModeToggle.checked = true;
+            document.getElementById("dark-mode-slider").setAttribute("title", "Lumos!");
+            darkMode()
+        }else{
+            darkModeToggle.checked = false;
+            lightMode();
+            document.getElementById("dark-mode-slider").setAttribute("title", "Nox!");
+        }
+    }
 }
 
 
@@ -370,6 +380,7 @@ function randomSudokuSelector(){
 
 function gameStartOnRefresh() {
     if(Number(localStorage.getItem("gameWonLossToggleLocal")) == 1){
+        removeLocalStorage();
         randomSudokuSelector()
         let j=0
         for(let i=0;i<9;i++){
