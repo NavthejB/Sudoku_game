@@ -12,6 +12,13 @@
 * ( site link : https://navthejb.github.io/Sudoku_game/ )
 
 
+## To run the game,
+* create a folder inside VS code
+* In that folder, create to more folders called images and icons, and copy the contents inside both folders from GitHub to VScode.
+* create 3 new files inside the main folder in the name of **index.html**, **styles.css** and **app.js** and run the html code.
+
+ 
+ 
 ## Light/Dark Mode Toggle
 
 Toggle between light and dark modes using the toggle button on top-right.
