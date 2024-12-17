@@ -15,7 +15,7 @@
 ## To run the game,
 * create a folder inside VS code
 * In that folder, create two more folders called images and icons, and copy the contents inside both folders from GitHub to VScode.
-* create 3 new files inside the main folder in the name of **index.html**, **styles.css** and **app.js** and run the html code.
+* create 3 new files inside the main folder in the name of **index.html**, **styles.css** and **app.js**. Copy the contents and run the html code.
 
  
  
